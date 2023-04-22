@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+#!/usr/bin/bash
 wal -b 282738 -i ~/Wallpaper/Aesthetic2.png &&
 sleep 4 &&
 picom --config ~/.config/picom/picom.conf &
