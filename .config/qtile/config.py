@@ -1,15 +1,3 @@
-#                                                               #
-#       ______                  __  _ __        _    _____      #
-#      / ____/___  ____  __  __/ /_(_) /__     | |  / /__ \     #
-#     / /   / __ \/_  / / / / / __/ / / _ \    | | / /__/ /     #
-#    / /___/ /_/ / / /_/ /_/ / /_/ / /  __/    | |/ // __/      #
-#    \____/\____/ /___/\__, /\__/_/_/\___/     |___//____/      #
-#                     /____/                                    #
-#                                                               #
-#                                                     DARKKAL44 #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-
 from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, hook, Screen, KeyChord
 from libqtile.lazy import lazy
@@ -19,12 +7,6 @@ from time import sleep
 
 mod = "mod4"
 terminal = "kitty"
-
-# █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄ █▀
-# █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀ ▄█
-
-
-
 
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -67,8 +49,8 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile (logout)"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "p", lazy.spawn("sh -c ~/.config/rofi/scripts/power"), desc='powermenu'),
-    Key([mod], "t", lazy.spawn("sh -c ~/.config/rofi/scripts/themes"), desc='theme_switcher'),
 
+    # Key([mod], "t", lazy.spawn("sh -c ~/.config/rofi/scripts/themes"), desc='theme_switcher'),
     # Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
     # Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
     # Key([], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc='Volume Mute'),
@@ -77,6 +59,7 @@ keys = [
     # Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc='playerctl'),
     # Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 10%+"), desc='brightness UP'),
     # Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness Down'),
+    
     Key([mod],"e", lazy.spawn("thunar"), desc='file manager'),
 	Key([mod], "h", lazy.spawn("roficlip"), desc='clipboard'),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc='Screenshot'),
@@ -128,51 +111,6 @@ layouts = [
 ]
 
 
-# layouts = [
-#     layout.Columns( margin= [10,10,10,10], border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-#         border_width=0,
-#     ),
-
-#     layout.Max(	border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-# 	    margin=10,
-# 	    border_width=0,
-#     ),
-
-#     layout.Floating(	border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-# 	    margin=10,
-# 	    border_width=0,
-# 	),
-#     # Try more layouts by unleashing below layouts
-#    #  layout.Stack(num_stacks=2),
-#    #  layout.Bsp(),
-#      layout.Matrix(	border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-# 	    margin=10,
-# 	    border_width=0,
-# 	),
-#      layout.MonadTall(	border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-#         margin=10,
-# 	    border_width=0,
-# 	),
-#     layout.MonadWide(	border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-# 	    margin=10,
-# 	    border_width=0,
-# 	),
-#    #  layout.RatioTile(),
-#      layout.Tile(	border_focus='#1F1D2E',
-# 	    border_normal='#1F1D2E',
-#     ),
-#    #  layout.TreeTab(),
-#    #  layout.VerticalTile(),
-#    #  layout.Zoomy(),
-# ]
-
-
 
 widget_defaults = dict(
     font="sans",
@@ -189,11 +127,6 @@ def search():
 
 def power():
     qtile.cmd_spawn("sh -c ~/.config/rofi/scripts/power")
-
-# █▄▄ ▄▀█ █▀█
-# █▄█ █▀█ █▀▄
-
-
 
 screens = [
 
@@ -247,12 +180,6 @@ screens = [
                 widget.Image(
                     filename='~/.config/qtile/Assets/1.png',
                 ),
-
-
-                # widget.Image(
-                #     filename='~/.config/qtile/Assets/layout.png',
-                #     background="#353446"
-                # ),
 
 
                 widget.CurrentLayout(
@@ -322,28 +249,6 @@ screens = [
                 ),
 
 
-                # widget.Image(
-                # filename='~/.config/qtile/Assets/Drop1.png',
-                # ),
-
-                # widget.Net(
-                # format=' {up}   {down} ',
-                # background='#353446',
-                # foreground='#CAA9E0',
-                # font="JetBrains Mono Bold",
-                # prefix='k',
-                # ),
-
-                # widget.Image(
-                    # filename='~/.config/qtile/Assets/2.png',
-                # ),
-
-                # widget.Spacer(
-                    # length=8,
-                    # background='#353446',
-                # ),
-
-
                 widget.Image(
                     filename='~/.config/qtile/Assets/Misc/ram.png',
                     background='#353446',
@@ -355,15 +260,6 @@ screens = [
                 background='#353446',
                 ),
 
-
-                # widget.Memory(
-                # background='#353446',
-                # format='{MemUsed: .0f}{mm}',
-                # foreground='#CAA9E0',
-                # font="JetBrains Mono Bold",
-                # update_interval=5,
-                # ),
-
                 widget.CPU(
                 background='#353446',
                 fmt=" {}",
@@ -372,13 +268,6 @@ screens = [
                 font="JetBrains Mono Bold",
                 update_interval=5,
                 ),
-
-
-                # widget.Image(
-                # filename='~/.config/qtile/Assets/Drop2.png',
-                # ),
-
-
 
                 widget.Image(
                     filename='~/.config/qtile/Assets/2.png',
@@ -389,47 +278,6 @@ screens = [
                     length=8,
                     background='#353446',
                 ),
-
-
-                # widget.BatteryIcon(
-                #     theme_path='~/.config/qtile/Assets/Battery/',
-                #     background='#353446',
-                #     scale=1,
-                # ),
-
-
-                # widget.Battery(
-                # font='JetBrains Mono Bold',
-                # background='#353446',
-                # foreground='#CAA9E0',
-                # format='{percent:2.0%}',
-                # ),
-
-
-                # widget.Image(
-                #     filename='~/.config/qtile/Assets/2.png',
-                # ),
-
-
-                # widget.Spacer(
-                #     length=8,
-                #     background='#353446',
-                # ),
-
-
-                # widget.Battery(format=' {percent:2.0%}',
-                    # font="JetBrains Mono ExtraBold",
-                    # fontsize=12,
-                    # padding=10,
-                    # background='#353446',
-                # ),
-
-                # widget.Memory(format='﬙{MemUsed: .0f}{mm}',
-                    # font="JetBrains Mono Bold",
-                    # fontsize=12,
-                    # padding=10,
-                    # background='#4B4D66',
-                # ),
 
                 widget.Volume(
                     font='Font Awesome 6 Free Solid',
@@ -493,8 +341,6 @@ screens = [
 ]
 
 
-
-# Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
@@ -502,7 +348,7 @@ mouse = [
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -526,36 +372,17 @@ floating_layout = layout.Floating(
 
 
 from libqtile import hook
-# some other imports
 import os
 import subprocess
-# stuff
+
 @hook.subscribe.startup_once
 def autostart_once():
-    subprocess.run('/home/unreal/.config/qtile/autostart_once.sh')# path to my script, under my user directory
+    subprocess.run('/home/deathblade287/.config/qtile/autostart_once.sh')# path to my script, under my user directory
     subprocess.call([home])
 
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
-
-
-
-# E O F
